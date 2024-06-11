@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { Box, Button, Container, Flex, FormControl, FormLabel, Heading, Input, Textarea } from "@chakra-ui/react";
+import { Box, Button, Container, Flex, FormControl, FormLabel, Heading, Input, Textarea, useColorMode } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 
 const AddPost = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+  const { colorMode } = useColorMode();
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -17,7 +18,7 @@ const AddPost = () => {
 
   return (
     <Box>
-      <Box as="header" bg="brand.800" color="white" py={4}>
+      <Box as="header" bg={colorMode === "light" ? "brand.800" : "gray.800"} color="white" py={4}>
         <Container maxW="container.lg">
           <Flex justify="space-between" align="center">
             <Heading as="h1" size="lg">
